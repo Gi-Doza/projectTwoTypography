@@ -14,6 +14,9 @@ body {
     width: 100%;
     min-height: 100vh;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -25,15 +28,21 @@ h1,h2,h3,h4,h5,h6 {
     height: 100vh;
     background: rgb(197,235,255);
     background: linear-gradient(0deg, rgba(197,235,255,1) 0%, rgba(241,250,255,1) 40%, rgba(255,255,255,1) 100%);
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: fixed;
     z-index: 0;
+}
+
+.lyricsWrapper {
+    /* background-color: pink; */
+    /* border: 10px dotted red; */
+    width: 1400px;
+    height: 3000px;
+    position: relative;
 }
 
 #amazing {
     position: absolute;
-    top: 21.5%;
+    top: 8%;
     left: 50%;
     margin: -69.5px;
     font-size: 100px;
@@ -45,7 +54,7 @@ h1,h2,h3,h4,h5,h6 {
 
 #grace {
     position: absolute;
-    top: 31.25%;
+    top: 12.1%;
     left: 50%;
     margin: -84.5px;
     font-size: 100px;
@@ -53,12 +62,12 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .graceA {
-    color: #fff;
+    color: white;
 }
 
 #how {
     position: absolute;
-    top: 62%;
+    top: 24%;
     left: 50%;
     margin-left: -38px;
     font-size: 60px;
@@ -67,7 +76,7 @@ h1,h2,h3,h4,h5,h6 {
 
 #sweet {
     position: absolute;
-    top: 60%;
+    top: 23.2%;
     left: 50%;
     margin-left: -103px;
     font-size: 100px;
@@ -75,20 +84,94 @@ h1,h2,h3,h4,h5,h6 {
     font-family: timberline, sans-serif;
 }
 
-#the {
+.theSound {
     position: absolute;
-    top: 73%;
+    top: 25.5%;
     left: 53%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* background-color: green; */
+}
+
+#the {
     font-size: 60px;
     letter-spacing: .03em;
+    margin-top: 10px;
 }
 
 #sound {
-    position: absolute;
-    top: 66%;
-    left: 64%;
-    margin-left: -103px;
+    margin-left: 30px;
+    font-family: timberline, sans-serif;
     font-size: 100px;
     letter-spacing: .03em;
+}
+
+.thatSaved {
+    position: absolute;
+    top: 25%;
+    left: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* background-color: green; */
+}
+
+#that {
+    font-size: 60px;
+    letter-spacing: .03em;
+    margin-top: 60px;
+}
+
+#saved {
+    margin-left: 30px;
     font-family: timberline, sans-serif;
+    font-size: 150px;
+    letter-spacing: .03em;
+}
+
+.aWretch {
+    position: absolute;
+    top: 28%;
+    left: 47%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* background-color: green; */
+}
+
+#a {
+    font-size: 100px;
+    letter-spacing: .03em;
+    margin-top: 5px;
+}
+
+#wretch {
+    font-family: timberline, sans-serif;
+    font-size: 150px;
+    letter-spacing: .03em;
+    margin-left: 15px;
+}
+
+.likeMe {
+    position: absolute;
+    top: 31%;
+    left: 32%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* background-color: green; */
+}
+
+#like {
+    font-family: timberline, sans-serif;
+    font-size: 180px;
+    letter-spacing: .03em;
+}
+
+#me {
+    font-family: timberline, sans-serif;
+    font-size: 180px;
+    letter-spacing: .03em;
+    margin-left: 40px;
 }
