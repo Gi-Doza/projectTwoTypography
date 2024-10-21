@@ -34,7 +34,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .lyricsWrapper {
     /* background-color: pink; */
-    /* border: 10px dotted red; */
+    border: 10px dotted red;
     width: 1400px;
     height: 3000px;
     position: relative;
@@ -112,7 +112,7 @@ h1,h2,h3,h4,h5,h6 {
     animation: tilt-in-top-1 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) 6s both;
 }
 
-input[type="checkbox"] {
+input[type="checkbox"]#toggleSound {
   display: none;
 }
 
@@ -128,15 +128,17 @@ label#sound {
     animation: wobble-ver-left 0.8s ease-in-out 7.2s infinite both, fade-in 0.1s both 7.2s;
 }
 
-input[type="checkbox"]:checked ~ .thatSaved {
-  opacity: 1;
-  /* transform: translateY(0);
-  transition-delay: 0.3s; */
+label#sound:hover {
+    cursor: pointer;
 }
 
-input[type="checkbox"]:checked + label#sound {
-  animation: none;
+input[type="checkbox"]#toggleSound:checked ~ .thatSaved {
   opacity: 1;
+}
+
+input[type="checkbox"]#toggleSound:checked + label#sound {
+  animation: none;
+  opacity: 1;  
 }
 
 .thatSaved {
@@ -149,7 +151,7 @@ input[type="checkbox"]:checked + label#sound {
     opacity: 0;
 }
 
-input[type="checkbox"]:checked ~ .thatSaved #that {
+input[type="checkbox"]#toggleSound:checked ~ .thatSaved #that {
     font-size: 60px;
     letter-spacing: .03em;
     margin-top: 60px;
@@ -157,7 +159,7 @@ input[type="checkbox"]:checked ~ .thatSaved #that {
     animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
 }
 
-input[type="checkbox"]:checked ~ .thatSaved #saved {
+input[type="checkbox"]#toggleSound:checked ~ .thatSaved #saved {
     padding: 20px;
     margin-left: 20px;
     font-family: timberline, sans-serif;
@@ -165,7 +167,7 @@ input[type="checkbox"]:checked ~ .thatSaved #saved {
     letter-spacing: .03em;
     opacity: 0;
 
-    animation: heartbeat 1.5s ease-in-out 1.5s 5 both, fade-in 0.1s both 1.5s;
+    animation: heartbeat 1.5s ease-in-out 1s 5 both, fade-in 0.1s both 1.5s;
 }
 
 .aWretch {
@@ -178,7 +180,7 @@ input[type="checkbox"]:checked ~ .thatSaved #saved {
     visibility: hidden;
 }
 
-input[type="checkbox"]:checked ~ .aWretch #a {
+input[type="checkbox"]#toggleSound:checked ~ .aWretch #a {
     font-size: 100px;
     letter-spacing: .03em;
     margin-top: 5px;
@@ -188,7 +190,7 @@ input[type="checkbox"]:checked ~ .aWretch #a {
     animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3s both;
 }
 
-input[type="checkbox"]:checked ~ .aWretch #wretch {
+input[type="checkbox"]#toggleSound:checked ~ .aWretch #wretch {
     padding: 20px;
     font-family: timberline, sans-serif;
     font-size: 150px;
@@ -208,9 +210,10 @@ input[type="checkbox"]:checked ~ .aWretch #wretch {
     flex-direction: row;
     align-items: center;
     visibility: hidden;
+    z-index: 99;
 }
 
-input[type="checkbox"]:checked ~ .likeMe #like {
+input[type="checkbox"]#toggleSound:checked ~ .likeMe #like {
     font-family: timberline, sans-serif;
     font-size: 180px;
     letter-spacing: .03em;
@@ -220,15 +223,154 @@ input[type="checkbox"]:checked ~ .likeMe #like {
     animation: rotate-in-2-br-cw 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) 5s both, fade-in 0.1s both 5s;
 }
 
-input[type="checkbox"]:checked ~ .likeMe #me {
-    font-family: timberline, sans-serif;
-    font-size: 180px;
-    letter-spacing: .03em;
-    margin-left: 40px;
-    opacity: 0;
-    visibility: visible;
+label#me {
+  font-family: timberline, sans-serif;
+  font-size: 180px;
+  letter-spacing: .03em;
+  margin-left: 40px;
+  opacity: 0;
+  visibility: visible;
+}
 
-    animation: rotate-in-2-br-ccw 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) 6s both, fade-in 0.1s both 6s, blink-1 0.6s 8s both infinite;
+label#me:hover {
+  cursor: pointer;
+}
+
+input[type="checkbox"]#toggleSound:checked ~ .likeMe label#me {
+  animation: rotate-in-2-br-ccw 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) 6s both, fade-in 0.1s both 6s, blink-1 0.6s 8s both, blink-1 0.6s 10s both, blink-1 0.6s 12s both, blink-1 0.6s 14s both, blink-1 0.6s 16s both, blink-1 0.6s 18s both;
+
+}
+
+input[type="checkbox"]#toggleMe {
+  display: none;
+}
+
+input[type="checkbox"]#toggleMe:checked ~ .iOnceWasLost {
+  opacity: 1;
+  visibility: visible;
+}
+
+input[type="checkbox"]#toggleMe:checked + label#me {
+  animation: none !important;
+  opacity: 1;
+}
+
+.iOnceWasLost {
+  position: absolute;
+  top: -5%;
+  left: -41%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+}
+
+input[type="checkbox"]#toggleMe:checked ~ .iOnceWasLost #i {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  padding: 25px;
+  font-family: timberline, sans-serif;
+  font-size: 300px;
+  letter-spacing: .03em;
+
+  animation: slide-in-bck-left 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s both;
+}
+
+input[type="checkbox"]#toggleMe:checked ~ .iOnceWasLost #once {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  font-size: 100px;
+  letter-spacing: .03em;
+  
+  animation: slide-in-bck-bottom 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.2s both;
+}
+
+input[type="checkbox"]#toggleMe:checked ~ .iOnceWasLost #was {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  margin-left: 30px;
+  font-size: 100px;
+  letter-spacing: .03em;
+
+  animation: slide-in-bck-right 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3.2s both;
+}
+
+input[type="checkbox"]#toggleMe:checked ~ .iOnceWasLost #lost {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  margin-left: 10px;
+  padding: 20px;
+  font-family: timberline, sans-serif;
+  font-size: 125px;
+  letter-spacing: .03em;
+
+  animation: fade-in 0.1s both 4.2s, text-blur-out 1.2s cubic-bezier(0.550, 0.085, 0.680, 0.530) 4.7s both, text-shadow-drop-center 0.6s 4.7s both;
+}
+
+input[type="checkbox"]#toggleMe:checked ~ .butNowAmFound {
+  opacity: 1;
+  visibility: visible;
+}
+
+.butNowAmFound {
+  position: absolute;
+  top: 67%;
+  left: 8%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+}
+
+input[type="checkbox"]#toggleMe:checked ~ .butNowAmFound #but {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  font-size: 100px;
+  letter-spacing: .03em;
+
+  animation: slide-in-fwd-left 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) 5.9s both;
+}
+
+input[type="checkbox"]#toggleMe:checked ~ .butNowAmFound #now {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  margin-left: 30px;
+  font-size: 100px;
+  letter-spacing: .03em;
+
+  animation: slide-in-fwd-bottom 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) 6.9s both;
+}
+
+input[type="checkbox"]#toggleMe:checked ~ .butNowAmFound #am {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  margin-left: 30px;
+  font-size: 100px;
+  letter-spacing: .03em;
+
+  animation: slide-in-fwd-right 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) 7.9s both;
+}
+
+input[type="checkbox"]#toggleMe:checked ~ .butNowAmFound #found {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  margin-left: 10px;
+  padding: 20px;
+  font-family: timberline, sans-serif;
+  font-size: 125px;
+  letter-spacing: .03em;
+
+  animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) 8.9s both;
 }
 
 
@@ -434,7 +576,7 @@ input[type="checkbox"]:checked ~ .likeMe #me {
 }
 
 @keyframes blink-1 {
-  10%,
+  1%,
   50%,
   100% {
     opacity: 1;
@@ -444,3 +586,88 @@ input[type="checkbox"]:checked ~ .likeMe #me {
     opacity: 0;
   }
 }
+
+@keyframes slide-in-bck-left {
+  0% {
+    transform: translateZ(700px) translateX(-400px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateZ(0) translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-bck-bottom {
+  0% {
+    transform: translateZ(700px) translateY(300px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateZ(0) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-bck-right {
+  0% {
+    transform: translateZ(700px) translateX(400px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateZ(0) translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes text-blur-out {
+  0% {
+    filter: blur(0.01);
+  }
+  100% {
+    filter: blur(12px) opacity(60%);
+  }
+}
+
+@keyframes text-shadow-drop-center {
+  0% {
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    text-shadow: 0 0 18px rgba(0, 0, 0, 0.35);
+  }
+}
+
+@keyframes slide-in-fwd-left {
+  0% {
+    transform: translateZ(-1400px) translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateZ(0) translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-fwd-bottom {
+  0% {
+    transform: translateZ(-1400px) translateY(800px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateZ(0) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-fwd-right {
+  0% {
+    transform: translateZ(-1400px) translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateZ(0) translateX(0);
+    opacity: 1;
+  }
+}
+
