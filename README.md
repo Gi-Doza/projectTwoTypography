@@ -1,6 +1,8 @@
 # Project 2: Typography
 
-By: Gian Mendoza
+**By: Gian Mendoza**
+
+> ⚠️ **Note:** Best viewed in Safari.
 
 ## Project Overview
 
