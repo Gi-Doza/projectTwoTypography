@@ -26,15 +26,17 @@ h1,h2,h3,h4,h5,h6 {
 #backgroundGradient {
     width: 100%;
     height: 100vh;
-    background: rgb(197,235,255);
-    background: linear-gradient(0deg, rgba(197,235,255,1) 0%, rgba(241,250,255,1) 40%, rgba(255,255,255,1) 100%);
+    /* background: rgb(197,235,255);
+    background: linear-gradient(0deg, rgba(197,235,255,1) 0%, rgba(241,250,255,1) 40%, rgba(255,255,255,1) 100%); */
     position: fixed;
     z-index: 0;
+
+    animation: color-change-3x 4s linear infinite alternate both;
 }
 
 .lyricsWrapper {
     /* background-color: pink; */
-    border: 10px dotted red;
+    /* border: 10px dotted red; */
     width: 1400px;
     height: 3000px;
     position: relative;
@@ -49,7 +51,7 @@ h1,h2,h3,h4,h5,h6 {
     letter-spacing: .03em;
     writing-mode: vertical-lr;
     text-orientation: upright;
-    z-index: 99;
+    z-index: 100;
 
     animation: tracking-in-contract-bck-top 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) 1s both;
 }
@@ -84,8 +86,8 @@ h1,h2,h3,h4,h5,h6 {
 
 #sweet {
     position: absolute;
-    padding: 20px;
-    top: 29%;
+    padding: 0 20px;
+    top: 30%;
     left: 50%;
     margin-left: -103px;
     font-size: 100px;
@@ -99,7 +101,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .theSound {
     position: absolute;
-    top: 31.5%;
+    top: 32.5%;
     left: 53%;
     display: flex;
     flex-direction: row;
@@ -119,7 +121,7 @@ input[type="checkbox"]#toggleSound {
 }
 
 label#sound {
-    padding: 20px;
+    padding: 0 20px;
     margin-left: 15px;
     font-family: timberline, sans-serif;
     font-size: 100px;
@@ -128,12 +130,14 @@ label#sound {
     overflow: hidden;
     opacity: 0;
     z-index: 99;
+    transition: color 0.2s ease-in-out;
 
     animation: wobble-ver-left 0.8s ease-in-out 7.2s infinite both, fade-in 0.1s both 7.2s;
 }
 
 label#sound:hover {
     cursor: pointer;
+    color: #256b91;
 }
 
 input[type="checkbox"]#toggleSound:checked ~ .thatSaved {
@@ -143,11 +147,12 @@ input[type="checkbox"]#toggleSound:checked ~ .thatSaved {
 input[type="checkbox"]#toggleSound:checked + label#sound {
   animation: none;
   opacity: 1;  
+  pointer-events: none;
 }
 
 .thatSaved {
     position: absolute;
-    top: 10%;
+    top: 27%;
     left: -138%;
     display: flex;
     flex-direction: row;
@@ -164,7 +169,7 @@ input[type="checkbox"]#toggleSound:checked ~ .thatSaved #that {
 }
 
 input[type="checkbox"]#toggleSound:checked ~ .thatSaved #saved {
-    padding: 26px;
+    padding: 0 26px;
     margin-left: 15px;
     font-family: timberline, sans-serif;
     font-size: 150px;
@@ -178,12 +183,13 @@ input[type="checkbox"]#toggleSound:checked ~ .thatSaved #saved {
 
 .aWretch {
     position: absolute;
-    top: 18%;
-    left: -19%;
+    top: 71%;
+    left: -9%;
     display: flex;
     flex-direction: row;
     align-items: center;
     visibility: hidden;
+    z-index: 98;
 }
 
 input[type="checkbox"]#toggleSound:checked ~ .aWretch #a {
@@ -197,11 +203,13 @@ input[type="checkbox"]#toggleSound:checked ~ .aWretch #a {
 }
 
 input[type="checkbox"]#toggleSound:checked ~ .aWretch #wretch {
-    padding: 20px;
+    padding: 0 25px;
     font-family: timberline, sans-serif;
     font-size: 150px;
     letter-spacing: .03em;
-    margin-left: 15px;
+    line-height: 1;
+    overflow: hidden;
+    /* margin-left: 15px; */
     opacity: 0;
     visibility: visible;
 
@@ -210,18 +218,22 @@ input[type="checkbox"]#toggleSound:checked ~ .aWretch #wretch {
 
 .likeMe {
     position: absolute;
-    top: 50%;
-    left: -80%;
+    top: 177%;
+    left: -78%;
     display: flex;
     flex-direction: row;
     align-items: center;
     visibility: hidden;
+    z-index: 97;
 }
 
 input[type="checkbox"]#toggleSound:checked ~ .likeMe #like {
+    padding: 0 10px;
     font-family: timberline, sans-serif;
     font-size: 180px;
     letter-spacing: .03em;
+    line-height: 1;
+    overflow: hidden;
     opacity: 0;
     visibility: visible;
 
@@ -229,17 +241,21 @@ input[type="checkbox"]#toggleSound:checked ~ .likeMe #like {
 }
 
 label#me {
+  padding: 0 10px;
   font-family: timberline, sans-serif;
   font-size: 180px;
   letter-spacing: .03em;
+  line-height: 1;
+  overflow: hidden;
   margin-left: 40px;
-  z-index: 99;
   opacity: 0;
   visibility: visible;
+  transition: color 0.2s ease-in-out;
 }
 
 label#me:hover {
   cursor: pointer;
+  color: #256b91;
 }
 
 input[type="checkbox"]#toggleSound:checked ~ .likeMe label#me {
@@ -259,33 +275,33 @@ input[type="checkbox"]#toggleMe:checked ~ .iOnceWasLost {
 input[type="checkbox"]#toggleMe:checked + label#me {
   animation: none !important;
   opacity: 1;
+  pointer-events: none;
 }
 
 .iOnceWasLost {
   position: absolute;
-  top: -5%;
-  left: -41%;
+  top: 24%;
+  left: -40%;
   display: flex;
   flex-direction: row;
   align-items: center;
   opacity: 0;
   visibility: hidden;
+  z-index: 96;
 }
 
 input[type="checkbox"]#toggleMe:checked ~ .iOnceWasLost #i {
-  top: 0;
-  left: 0;
-  padding: 25px;
+  padding: 106px 73px 4px 5px;
   font-family: timberline, sans-serif;
   font-size: 300px;
   letter-spacing: .03em;
+  line-height: 1;
+  overflow: hidden;
 
   animation: slide-in-bck-left 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both;
 }
 
 input[type="checkbox"]#toggleMe:checked ~ .iOnceWasLost #once {
-  top: 0;
-  left: 0;
   font-size: 100px;
   letter-spacing: .03em;
   
@@ -293,8 +309,6 @@ input[type="checkbox"]#toggleMe:checked ~ .iOnceWasLost #once {
 }
 
 input[type="checkbox"]#toggleMe:checked ~ .iOnceWasLost #was {
-  top: 0;
-  left: 0;
   margin-left: 30px;
   font-size: 100px;
   letter-spacing: .03em;
@@ -303,13 +317,12 @@ input[type="checkbox"]#toggleMe:checked ~ .iOnceWasLost #was {
 }
 
 input[type="checkbox"]#toggleMe:checked ~ .iOnceWasLost #lost {
-  top: 0;
-  left: 0;
-  margin-left: 10px;
-  padding: 20px;
+  padding: 20px 25px 20px 40px;
   font-family: timberline, sans-serif;
   font-size: 125px;
   letter-spacing: .03em;
+  line-height: 1;
+  overflow: hidden;
 
   animation: fade-in 0.1s both 3.2s, text-blur-out 1.2s cubic-bezier(0.550, 0.085, 0.680, 0.530) 3.7s both, text-shadow-drop-center 0.6s 3.7s both;
 }
@@ -321,14 +334,14 @@ input[type="checkbox"]#toggleMe:checked ~ .butNowAmFound {
 
 .butNowAmFound {
   position: absolute;
-  top: 67%;
-  left: 8%;
+  top: 160%;
+  left: 18%;
   display: flex;
   flex-direction: row;
   align-items: center;
   opacity: 0;
   visibility: hidden;
-  /* background-color: orange; */
+  z-index: 95;
 }
 
 input[type="checkbox"]#toggleMe:checked ~ .butNowAmFound #but {
@@ -355,15 +368,18 @@ input[type="checkbox"]#toggleMe:checked ~ .butNowAmFound #am {
 }
 
 label#found {
-  margin-left: 10px;
-  padding: 20px;
+  padding: 0 25px;
   font-family: timberline, sans-serif;
   font-size: 125px;
   letter-spacing: .03em;
+  line-height: 1;
+  overflow: hidden;
+  transition: color 0.2s ease-in-out;
 }
 
 label#found:hover {
   cursor: pointer;
+  color: #256b91;
 }
 
 input[type="checkbox"]#toggleMe:checked ~ .butNowAmFound label#found {
@@ -382,6 +398,7 @@ input[type="checkbox"]#toggleFound:checked ~ .wasBlindButNowISee {
 input[type="checkbox"]#toggleFound:checked + label#found {
   animation: none !important;
   opacity: 1;
+  pointer-events: none;
 }
 
 .wasBlindButNowISee {
@@ -395,8 +412,8 @@ input[type="checkbox"]#toggleFound:checked + label#found {
 
 input[type="checkbox"]#toggleFound:checked ~ .wasBlindButNowISee #wasB {
   position: absolute;
-  top: 90%;
-  left: 22%;
+  top: 150%;
+  left: 10%;
   font-size: 60px;
   letter-spacing: .03em;
   z-index: 11;
@@ -406,23 +423,22 @@ input[type="checkbox"]#toggleFound:checked ~ .wasBlindButNowISee #wasB {
 
 input[type="checkbox"]#toggleFound:checked ~ .wasBlindButNowISee #blind {
   position: absolute;
-  top: 82%;
-  left: -4%;
-  padding: 30px 100px;
+  top: 230%;
+  left: -8%;
+  padding: 0 21px;
   font-family: timberline, sans-serif;
   font-size: 125px;
   letter-spacing: .03em;
-  /* background-color: white;
-  border-radius: 100%; */
+  line-height: 1;
+  overflow: hidden;
 
   animation: fade-in 0.1s 1.2s both, text-flicker-out-glow 2.5s linear 1.7s both;
 }
 
 input[type="checkbox"]#toggleFound:checked ~ .wasBlindButNowISee #butN {
   position: absolute;
-  top: 155%;
-  left: 12%;
-  margin-left: 30px;
+  top: 335%;
+  left: 4%;
   font-size: 60px;
   letter-spacing: .03em;
 
@@ -431,9 +447,8 @@ input[type="checkbox"]#toggleFound:checked ~ .wasBlindButNowISee #butN {
 
 input[type="checkbox"]#toggleFound:checked ~ .wasBlindButNowISee #nowI {
   position: absolute;
-  top: 155%;
-  left: 23%;
-  margin-left: 30px;
+  top: 335%;
+  left: 15%;
   font-size: 60px;
   letter-spacing: .03em;
 
@@ -442,48 +457,58 @@ input[type="checkbox"]#toggleFound:checked ~ .wasBlindButNowISee #nowI {
 
 input[type="checkbox"]#toggleFound:checked ~ .wasBlindButNowISee #iS {
   position: absolute;
-  top: 130%;
-  left: -25%;
-  padding: 30px;
+  top: 360%;
+  left: -35%;
+  padding: 90px 62px 4px 4px;
   font-family: timberline, sans-serif;
   font-size: 250px;
   letter-spacing: .03em;
   line-height: 1;
+  overflow: hidden;
 
   animation: rotate-in-2-cw 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 6.3s both;
 }
 
 input[type="checkbox"]#toggleFound:checked ~ .wasBlindButNowISee #see {
   position: absolute;
-  top: 130%;
-  left: 05%;
-  padding: 30px;
+  top: 430%;
+  left: -8%;
+  padding: 0 60px 60px 60px;
   font-family: timberline, sans-serif;
   font-size: 250px;
   letter-spacing: .03em;
   line-height: 1;
+  overflow: hidden;
   color: black;
   text-decoration: none;
+  transition: color 0.2s ease-in-out;
 
   animation: text-flicker-in-glow 2s linear 7.3s both, text-pop-up-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 9.8s both;
+  pointer-events: all;
+}
+
+input[type="checkbox"]#toggleFound:checked ~ .wasBlindButNowISee #see:hover {
+  color: #256b91 !important;
 }
 
 input[type="checkbox"]#toggleFound:checked ~ .wasBlindButNowISee #title {
   position: absolute;
-  top: 290%;
-  left: -2%;
+  top: 730%;
+  left: -12%;
   padding: 30px;
   font-family: timberline, sans-serif;
   font-size: 50px;
   letter-spacing: .03em;
+  line-height: 1;
+  overflow: hidden;
 
   animation: fade-in-long 1.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) 11.3s both;
 }
 
 input[type="checkbox"]#toggleFound:checked ~ .wasBlindButNowISee #author {
   position: absolute;
-  top: 330%;
-  left: 18%;
+  top: 804%;
+  left: 8%;
   font-size: 24px;
   letter-spacing: .03em;
 
@@ -1171,6 +1196,17 @@ input[type="checkbox"]#toggleFound:checked ~ .wasBlindButNowISee #author {
   }
 }
 
+@keyframes color-change-3x {
+  0% {
+    background: #c5ebff;
+  }
+  50% {
+    background: #f1faff;
+  }
+  100% {
+    background: #ffffff;
+  }
+}
 
 /* ----------------------------------------------
  * Generated by Animista on 2024-10-21 3:20:46
